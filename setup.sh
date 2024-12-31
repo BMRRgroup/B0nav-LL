@@ -7,17 +7,13 @@ ENV_NAME=${1:-B0nav-LL}
 echo "Creating Mamba environment: $ENV_NAME"
 mamba env create --name $ENV_NAME --file environment_nocuda.yml
 
-# Step 2: Activate the Mamba environment
-echo "Activating the $ENV_NAME environment..."
-source $(mamba info --base)/etc/profile.d/conda.sh
-conda activate $ENV_NAME
-
-# Step 3: Get the Python executable path from the activated environment
-PYTHON_PATH=$(which python)
+# Step 2: Get the Python executable path from the activated environment
+ENV_PATH=$(mamba env list | grep "^$ENV_NAME" | awk '{print $NF}')
+PYTHON_PATH=$ENV_PATH/bin/python
 
 echo "Python path in the environment: $PYTHON_PATH"
 
-# Step 4: Open Julia and configure the environment
+# Step 3: Open Julia and configure the environment
 echo "Configuring Julia environment..."
 
 # Run Julia commands to activate, instantiate, and set the Python environment

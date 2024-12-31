@@ -15,7 +15,7 @@ begin
 	using NaNStatistics
 	using Plots
 	using NPZ
-	include("/home/jstelter/b0nav-ll/B0navigator.jl")
+	include("./B0navigator.jl")
 	md"Julia imports completed! 🚀"
 end
 

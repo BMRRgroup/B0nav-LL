@@ -7,17 +7,21 @@ Implementation of the Dixon B0 self-navigator to perform respiratory motion esti
 ## 🚀 Setup
 
 ### Dependencies
-- Julia (v1.11 recommended)
-- [Mamba](https://mamba.readthedocs.io/en/latest/) package manager (for Python dependencies)
+- [Julia](https://julialang.org/) (tested with v1.11)
+- [Mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) package manager for Python dependencies. Alternatively, conda or virtualenv can be used, but the setup.sh script has to be modified accordingly. <br> The latest Miniforge distribution with Mamba can be installed from the terminal using curl or wget (Unix-like platforms):
+  ```shell
+  curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+  bash Miniforge3-$(uname)-$(uname -m).sh
+  ```
 
 ### Install
 
 **Clone the repo and run setup script:**
 
 ```shell
-    git clone https://github.com/BMRRgroup/B0nav-LL.git
-    cd B0nav-LL
-    ./setup.sh
+git clone https://github.com/BMRRgroup/B0nav-LL.git
+cd B0nav-LL
+./setup.sh
 ```
 
 The setup.sh script creates a new Mamba environment with the Python dependencies and configures the executable Python file from this environment as the Python path for PyCall.jl. An argument can be passed to the setup.sh script to change the name of the Mamba environment (default: B0nav-LL).
@@ -27,7 +31,7 @@ The setup.sh script creates a new Mamba environment with the Python dependencies
 **Run the Pluto programming environment and open the notebooks (theory_simulation.jl, invivo_example.jl) directly in your browser:**
 
 ```shell
-    julia -e 'using Pkg; Pkg.activate("."); using Pluto; Pluto.run()'
+julia -e 'using Pkg; Pkg.activate("."); using Pluto; Pluto.run()'
 ```
 
 ## Data
